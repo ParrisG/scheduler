@@ -1,28 +1,11 @@
-import React, {useState, fragment} from "react";
-
+import React, {useState, useEffect} from "react";
+import axios from "axios";
 import DayList from "./DayList";
 import Appointment from "./Appointment"
 
 import "components/Application.scss";
 
-// Temporary days array data
-const days = [
-  {
-    id: 1,
-    name: "Monday",
-    spots: 2,
-  },
-  {
-    id: 2,
-    name: "Tuesday",
-    spots: 5,
-  },
-  {
-    id: 3,
-    name: "Wednesday",
-    spots: 0,
-  },
-];
+
 
 //Temporary Mock Appointment Data
 const appointments = [
@@ -65,6 +48,16 @@ const appointments = [
 ];
 
 export default function Application(props) {
+
+  //getting and setting the days array in state
+  const [days, setDays] = useState([]);
+
+  useEffect(() => {
+    axios.get("/api/days").then((response) => {
+      console.log(response)
+      setDays(response.data)
+    })
+  }, [])
 
   const [day, setDay] = useState("Monday");
 

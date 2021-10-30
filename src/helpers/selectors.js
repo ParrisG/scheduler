@@ -15,4 +15,21 @@ export function getAppointmentsForDay(state, day) {
   };
 
   return appointmentsForDay;
+};
+
+export function getInterview(state, interview) {
+  let fullInterview = {}
+  if (interview) {
+    const id = interview.interviewer
+    return fullInterview = {
+      student: interview.student,
+      interviewer: {
+        id: id,
+        name: state.interviewers[id].name,
+        avatar: state.interviewers[id].avatar
+      }
+    };
+  } else {
+    return null;
+  }
 }

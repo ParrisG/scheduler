@@ -18,10 +18,9 @@ export function getAppointmentsForDay(state, day) {
 };
 
 export function getInterview(state, interview) {
-  let fullInterview = {}
   if (interview) {
     const id = interview.interviewer
-    return fullInterview = {
+    return {
       student: interview.student,
       interviewer: {
         id: id,

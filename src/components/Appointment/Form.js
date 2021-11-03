@@ -2,21 +2,6 @@ import React, { useState } from "react";
 import InterviewerList from "components/InterviewerList";
 import Button from "components/Button";
 
-// PROPS: 
-// student:String
-// interviewers:Array
-// interviewer:Number
-// onSave:Function
-// onCancel:Function
-
-// STATE:
-// student:String
-// interviewer:Number
-
-// ACTIONS:
-// setStudent:Function
-// setInterviewer:Function
-
 export default function Form(props) {
 
   const [student, setStudent] = useState(props.student || "");
@@ -25,6 +10,7 @@ export default function Form(props) {
 
   const reset = () => {
     setStudent("");
+    setError("");
     setInterviewer(null);
   }
 
@@ -39,6 +25,7 @@ export default function Form(props) {
       return;
     }
 
+    setError("");
     props.onSave(student, interviewer);
   }
 

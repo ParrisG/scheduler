@@ -4,8 +4,10 @@ import classNames from "classnames";
 
 export default function DayListItem(props) {
 
+  //give the listItem the "day-list__item--selected" className if selected
   let dayClass = classNames("day-list__item", { "day-list__item--selected": props.selected, "day-list__item--full": props.spots === 0});
 
+  //adjust the text to use proper grammer for number of spots remaining
   const formatSpots = function (spots) {
     if (spots === 0) {
       return "no spots remaining";

@@ -7,12 +7,9 @@ export default function useVisualMode(initial) {
   function transition (newMode, replace = false) {
     setMode(newMode);
     if (replace === true) {
-      let newHistory = [...history];
-      newHistory[history.length - 1] = newMode;
-      setHistory(newHistory);
+      setHistory(prev => ([...prev.pop(), newMode]));
     } else {
-      let newHistory = [...history, newMode];
-      setHistory(newHistory);
+      setHistory(prev => ([...prev, newMode]));
     }
   }
 

@@ -14,7 +14,6 @@ function InterviewerList(props) {
       selected={props.value === interviewer.id} />
   ));
 
-
   return (
   <section className="interviewers">
     <h4 className="interviewers__header text--light">Interviewer</h4>
@@ -26,6 +25,7 @@ function InterviewerList(props) {
   );
 }
 
+//One of the activities in the project introduced PropTypes
 InterviewerList.propTypes = {
   interviewers: PropTypes.array.isRequired
 };

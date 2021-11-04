@@ -1,11 +1,5 @@
 import React from "react";
 
-//Expected props:
-// student:String
-// interviewer:Object
-// onEdit:Function
-// onDelete:Function
-
 export default function Show(props) {
 
   return(
@@ -34,5 +28,5 @@ export default function Show(props) {
         </section>
       </section>
     </main>
-  )
+  );
 }
